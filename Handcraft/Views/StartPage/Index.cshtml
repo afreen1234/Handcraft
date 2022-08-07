@@ -1,0 +1,11 @@
+﻿@using Handcraft.Models.ViewModels;
+@using Handcraft;
+@using System.Web.Optimization
+@model PageViewModel<Handcraft.Models.Pages.StartPage>
+
+@Styles.Render("~/ClientResources/Styles/startpage.css")
+
+ @Html.PropertyFor(x => x.CurrentPage.MainContentArea , new { CustomTag = "ul", CssClass = "main-container", 
+                                                               ChildrenCustomTagName = "li",
+                                                              ChildrenCssClass = "container-item" })
+        
