@@ -21,14 +21,15 @@ namespace Handcraft.Initialization
 
         public static void RegisterBundles(BundleCollection bundles)
         {
-            //bundles.Add(new ScriptBundle("~/bundles/js").Include(
-            //            "~/Static/js/jquery.js", //jquery.js can be removed and linked from CDN instead, we use a local one for demo purposes without internet connectionzz
-            //            "~/Static/js/bootstrap.js"));
+            bundles.Add(new ScriptBundle("~/bundles/js").Include(
+                  "~/Scripts/jquery-3.6.0.js",
+                  "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css")
-                .Include("~/ClientResources/Styles/articleblock.css")
-                .Include("~/ClientResources/Styles/startpage.css")
-                );
+                .Include("~/Content/bootstrap.css", new CssRewriteUrlTransform())
+                .Include("~/ClientResources/Styles/bootstrap-responsive.css")
+                .Include("~/ClientResources/Styles/site.css")
+                .Include("~/ClientResources/Styles/articleblock.css"));
         }
 
         public void Uninitialize(InitializationEngine context)

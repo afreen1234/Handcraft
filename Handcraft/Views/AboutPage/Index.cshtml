@@ -1,0 +1,16 @@
+﻿@using Handcraft.Models.ViewModels;
+@using Handcraft;
+@model PageViewModel<Handcraft.Models.Pages.AboutPage>
+
+@{
+   
+}
+
+<div class="aboutPage row">
+    <img src="@Url.ContentUrl(Model.CurrentPage.Image)" height="300px" width="300px"/>
+    <span>@Html.PropertyFor(x => x.CurrentPage.Description)</span>
+    <div class="about_contentarea">
+        @Html.PropertyFor(x => x.CurrentPage.AboutContentArea)
+    </div>
+</div>
+

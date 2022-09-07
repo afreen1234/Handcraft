@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Handcraft.Models.Media
 {
     [ContentType(DisplayName = "VideoFile", GUID = "8a112bc6-bb3a-459f-b4c8-e97dcd80c238", Description = "")]
-    [MediaDescriptor(ExtensionString = "flv,mp4,webm")]
+    [MediaDescriptor(ExtensionString = "flv,mp4,webm,avi,mov")]
     public class VideoFile : VideoData
     {
         public virtual string Copyright { get; set; }

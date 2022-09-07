@@ -15,6 +15,12 @@ namespace Handcraft
 
             [Display(Name = "SiteSettings", Order = 300)]
             public const string SiteSettings = "SiteSettings";
+
+            [Display(Name = "Default", Order = 305)]
+            public const string Default = "Default";
+
+            [Display(Name = "Specialized", Order = 310)]
+            public const string Specialized = "Specialized";
         }
         public static class ContentAreaTags
         {
@@ -24,5 +30,6 @@ namespace Handcraft
             public const string OneThirdWidth = "span4";
             public const string NoRenderer = "norenderer";
         }
+        public const string StaticGraphicsFolderPath = "~/Static/gfx/";
     }
 }

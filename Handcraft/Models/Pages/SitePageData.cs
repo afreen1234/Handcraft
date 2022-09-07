@@ -11,11 +11,23 @@ namespace Handcraft.Models.Pages
     public class SitePageData : PageData
     {
         [CultureSpecific]
-        [Display(Name = "MetaData", GroupName = Global.GroupNames.SiteSettings, Order = 10)]
+        [Display(Name = "Meta Data", GroupName = SystemTabNames.Settings, Order = 10)]
         public virtual string MetaData { get; set; }
 
         [CultureSpecific]
-        [Display(Name = "Metatitle", GroupName = Global.GroupNames.SiteSettings, Order = 15)]
-        public virtual string Metatitle { get; set; }
+        [Display(Name = "Meta Title", GroupName = SystemTabNames.Settings, Order = 15)]
+        public virtual string MetaTitle { get; set; }
+
+        [CultureSpecific]
+        [Display(Name = "Meta Description", GroupName = SystemTabNames.Settings, Order = 20)]
+        public virtual string MetaDescription { get; set; }
+
+        [Display(GroupName = SystemTabNames.Settings, Order = 25)]
+        [CultureSpecific]
+        public virtual bool HideSiteHeader { get; set; }
+
+        [Display(GroupName = SystemTabNames.Settings, Order = 30)]
+        [CultureSpecific]
+        public virtual bool HideSiteFooter { get; set; }
     }
 }

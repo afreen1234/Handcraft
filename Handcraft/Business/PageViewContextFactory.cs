@@ -28,19 +28,19 @@ namespace Handcraft.Business
         public virtual LayoutModel CreateLayoutModel(ContentReference currentContentLink, RequestContext requestContext)
         {
             var startPageContentLink = SiteDefinition.Current.StartPage;
-
-            // Use the content link with version information when editing the startpage,
-            // otherwise the published version will be used when rendering the props below.
             if (currentContentLink.CompareToIgnoreWorkID(startPageContentLink))
             {
                 startPageContentLink = currentContentLink;
             }
-
             var startPage = _contentLoader.Get<StartPage>(startPageContentLink);
 
             return new LayoutModel
             {
-                
+                HeaderLinks = startPage.HeaderLinks,
+                Logo = startPage.SiteLogotype,
+                SupportPages = startPage.SupportPages,
+                CompanyInformationPages = startPage.CompanyPages,
+                SocialMedia = startPage.SocialmediaPages
             };
         }
     }

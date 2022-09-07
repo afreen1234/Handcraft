@@ -1,11 +1,24 @@
 ﻿@using Handcraft.Models.ViewModels;
 @using Handcraft;
-@using System.Web.Optimization
+@using System.Web.Optimization;
 @model PageViewModel<Handcraft.Models.Pages.StartPage>
 
 @Styles.Render("~/ClientResources/Styles/startpage.css")
 
- @Html.PropertyFor(x => x.CurrentPage.MainContentArea , new { CustomTag = "ul", CssClass = "main-container", 
-                                                               ChildrenCustomTagName = "li",
-                                                              ChildrenCssClass = "container-item" })
-        
+<div class="startPage">
+        @if (Model.CurrentPage.Carousel != null)
+        {
+            @Html.PropertyFor(x => x.CurrentPage.Carousel)
+        }
+    <div class="startPage-contentarea">
+        @Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "ul", ChildrenCssClass = "li" })
+    </div>
+    <div class="row articleBlockList">
+        @foreach (var item in Model.CurrentPage.ArticleListBlock)
+        {
+        <div class="col-sm article-items">
+            @Html.Partial("~/Views/ArticleBlock/_Article.cshtml", item)
+        </div>
+        }
+    </div>     
+</div>

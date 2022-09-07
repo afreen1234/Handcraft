@@ -1,17 +1,15 @@
 ﻿@using System.Web.Optimization
-@model Handcraft.Models.Blocks.ArticleBlock
+@model Handcraft.Models.ViewModels.ArticleBlockViewModel
+@*@model Handcraft.Models.Blocks.ArticleBlock*@
 
-@Styles.Render("~/ClientResources/Styles/articleblock.css");
-<html>
-<body>
-    <div class="article-title">
-        <h2>@Model.Title</h2>
-        <div class="article-image">
-            <img class="rounded float-left" src="@Url.ContentUrl(Model.Image)" />
-        </div>
-        <div class="article-description">
-            <p>@Model.Description</p>
-        </div>
-    </div>
-</body>
-</html>
+    
+<div class="article-container">
+            <div class="article-title">
+                <h2>@Model.Title</h2>
+                <div class="article-image">
+                    <img src="@Url.ContentUrl(Model.Image)" />
+                    <span class="article-description">@Model.Description</span>
+                </div>
+            </div>
+</div>
+   

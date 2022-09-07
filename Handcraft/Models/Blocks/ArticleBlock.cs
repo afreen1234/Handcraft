@@ -2,6 +2,7 @@
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.Web;
+using Newtonsoft.Json;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,6 +20,6 @@ namespace Handcraft.Models.Blocks
 
         [Display(Name = "Description", GroupName = SystemTabNames.Content, Order = 210)]
         [UIHint(UIHint.Textarea)]
-        public virtual string Description { get; set; }
+        public virtual XhtmlString Description { get; set; }
     }
 }

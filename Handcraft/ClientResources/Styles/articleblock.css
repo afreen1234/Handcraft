@@ -1,4 +1,6 @@
 ﻿.article-image img {
-    width: 400px;
-    height: 250px
+    object-fit:cover;
+    height: 250px;
+    width: 100%;
 }
+

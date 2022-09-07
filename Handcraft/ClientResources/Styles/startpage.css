@@ -1,8 +1,23 @@
 ﻿.main-container {
     display: flex;
+    padding : 5px;
+    
 }
+
 .articleblock {
-    display: inline-block;
-    padding: 1rem 1rem;
+    display : inline-block;
+    padding: 20px;
     vertical-align: middle;
+    box-sizing: content-box
+}
+
+.row.articleBlockList {
+    width: 100%;
+    display: flex;
+    margin-left: 5px !important;
+    justify-content: space-between;
+}
+
+.col-sm.article-items {
+    width: 33%;
 }

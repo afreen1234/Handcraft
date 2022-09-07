@@ -1,0 +1,31 @@
+﻿@model Handcraft.Models.Blocks.YoutubeBlock
+
+@{
+    var youtubeLink = Model.YoutubeLink.OriginalString;
+
+    if (youtubeLink.Contains("https://www.youtube.com"))
+    {
+        youtubeLink = youtubeLink.Replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/");
+    }
+    if (Model.AutoPlay)
+    {
+        youtubeLink += ((youtubeLink.Contains("?")) ? "&" : "?") + "autoplay?=1";
+    }
+    var allowFullScreen = Model.AllowFullScreen ? "allowfullscreen" : "";
+}
+
+<div class="youtubediv">
+    <div class="youtube-title" style="text-align:center; font-weight:bold;">
+        @if (!String.IsNullOrEmpty(Model.VideoTitle))
+        {
+            <h3>@Html.DisplayName(Model.VideoTitle)</h3>
+        }
+    </div>
+    <iframe id="video" width="@Model.Width" height="@Model.Height" src="@youtubeLink" @allowFullScreen style="border: none; width: 100%;"></iframe>
+    <div class="youtube-description">
+        @if (!String.IsNullOrEmpty(Model.Description))
+        {
+            <p>@Html.PropertyFor(x => x.Description)</p>
+        }
+    </div>
+</div>  

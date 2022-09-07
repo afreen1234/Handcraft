@@ -3,6 +3,7 @@ using EPiServer.Core;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
 using Handcraft.Models.Blocks;
+using Handcraft.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,13 @@ namespace Handcraft.Controllers.Blocks
     {
         public override ActionResult Index(ArticleBlock currentBlock)
         {
-            return PartialView("_Article",currentBlock);
+            var model = new ArticleBlockViewModel
+            {
+                Title = currentBlock.Title,
+                Description = currentBlock.Description,
+                Image = currentBlock.Image
+            };
+            return PartialView("_Article", model);
         }
     }
 }

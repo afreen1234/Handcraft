@@ -1,11 +1,8 @@
 ﻿using EPiServer;
 using EPiServer.Core;
-using EPiServer.ServiceLocation;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
 using Handcraft.Models.Blocks;
-using Handcraft.Models.Media;
-using Handcraft.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +15,7 @@ namespace Handcraft.Controllers.Blocks
     {
         public override ActionResult Index(CarouselBlock currentBlock)
         {
-            return PartialView(currentBlock);
+            return PartialView("_Carousel",currentBlock);
         }
     }
 }

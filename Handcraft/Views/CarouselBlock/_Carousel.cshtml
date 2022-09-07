@@ -1,47 +1,49 @@
-﻿@using EPiServer
-@using EPiServer.ServiceLocation
-@using Handcraft.Models.Blocks
-@model CarouselBlock
+﻿@model Handcraft.Models.Blocks.CarouselBlock
+@using System.Web.Optimization
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<style>
-    .carousel-inner img {
-        width: 100%;
-        height: 100%;
-    }
-</style>
+@Styles.Render("~/ClientResources/Styles/carousel.css")
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
 
-@{
-    var isCarouselNotEmpty = Model.ImageItems != null && Model.ImageItems.FilteredItems.Any();
-    var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
-}
+<div class="handcraft-carousel">
+    <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+        <!-- Indicators -->
+        @*<div class="carousel-indicators">
+                <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="2" aria-label="Slide 3"></button>
+            </div>*@
 
-<div id="demo-carousel" class="carousel slide" data-ride="carousel" @Html.EditAttributes(m => m.ImageItems)>
-    @if (isCarouselNotEmpty)
-    {
-        <ul class="carousel-indicators">
-            <li data-target="#demo-carousel" data-slide-to="0" class="active"></li>
-            @for (var i = 1; i < Model.ImageItems.FilteredItems.Count(); i++)
-            {
-                <li data-target="#demo-carousel" data-slide-to="@i"></li>
-
-            }
-        </ul>
+        <!-- Inner -->
         <div class="carousel-inner">
-            @foreach (var carouselItem in Model.ImageItems.FilteredItems)
+            @foreach (var item in Model.Images)
             {
-                var block = contentRepository.Get<SliderItem>(carouselItem.ContentLink);
-                @Html.DisplayFor(m => block)
+                <div class="carousel-item @(item == Model.Images.First() ? "active" : "")">
+                    <img class="d-block w-100" src="@Url.ContentUrl(item)" />
+                </div>
             }
+            <!-- Inner -->
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="prev">
+                <span class="carousel-control-prev-icon rounded" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="next">
+                <span class="carousel-control-next-icon rounded" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <a class="carousel-control-prev" href="#demo-carousel" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#demo-carousel" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </a>
-    }
+    </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.carousel').carousel({
+            interval: 2000
+        })
+        $('.carousel-control-next').click(function () {
+            $('.carousel-item').carousel('next');
+        });
+    });
+</script>
