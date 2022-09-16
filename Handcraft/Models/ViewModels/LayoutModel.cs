@@ -10,6 +10,7 @@ namespace Handcraft.Models.ViewModels
     public class LayoutModel
     {
         public LogoBlock Logo { get; set; }
+        public CarouselBlock Carousel { get; set; }
         public LinkItemCollection HeaderLinks { get; set; }
         public LinkItemCollection SupportPages { get; set; }
         public LinkItemCollection CompanyInformationPages { get; set; }

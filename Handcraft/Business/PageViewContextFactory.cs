@@ -16,14 +16,14 @@ namespace Handcraft.Business
     public class PageViewContextFactory
     {
         private readonly IContentLoader _contentLoader;
-        private readonly UrlResolver _urlResolver;
-        private readonly IDatabaseMode _databaseMode;
+        //private readonly UrlResolver _urlResolver;
+        //private readonly IDatabaseMode _databaseMode;
 
-        public PageViewContextFactory(IContentLoader contentLoader, UrlResolver urlResolver, IDatabaseMode databaseMode)
+        public PageViewContextFactory(IContentLoader contentLoader /* UrlResolver urlResolver, IDatabaseMode databaseMode*/)
         {
             _contentLoader = contentLoader;
-            _urlResolver = urlResolver;
-            _databaseMode = databaseMode;
+            //_urlResolver = urlResolver;
+            //_databaseMode = databaseMode;
         }
         public virtual LayoutModel CreateLayoutModel(ContentReference currentContentLink, RequestContext requestContext)
         {
@@ -37,6 +37,7 @@ namespace Handcraft.Business
             return new LayoutModel
             {
                 HeaderLinks = startPage.HeaderLinks,
+                Carousel = startPage.Carousel,
                 Logo = startPage.SiteLogotype,
                 SupportPages = startPage.SupportPages,
                 CompanyInformationPages = startPage.CompanyPages,

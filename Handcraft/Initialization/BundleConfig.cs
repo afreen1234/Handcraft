@@ -23,7 +23,8 @@ namespace Handcraft.Initialization
         {
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                   "~/Scripts/jquery-3.6.0.js",
-                  "~/Scripts/bootstrap.js"));
+                  "~/Scripts/bootstrap.js"
+                  ));
 
             bundles.Add(new StyleBundle("~/bundles/css")
                 .Include("~/Content/bootstrap.css", new CssRewriteUrlTransform())

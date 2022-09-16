@@ -1,17 +1,7 @@
 ﻿body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: white !important;
-    /*color : white !important;*/
 }
-
-/*.bg-img {
-    background-image: url("../../Static/gfx/icons8-disney-logo-48.png");
-    position: relative !important;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 400px;
-}*/
 
 .container-fluid {
     padding-right: 0px !important;
@@ -23,6 +13,7 @@
 
 .navbar {
     /*background-color: #dddddd;*/
+    position : absolute !important;
     background-color:none;
     font-size : 16px;
     margin-bottom: 0 !important;
@@ -41,12 +32,8 @@ float : left;
 
 .nav li a {
     display: block;
-    /*color: white;*/
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    padding: 10px !important;
     font-weight:bold;
-    /*font-family: Arial, Helvetica, sans-serif;*/
 }
 
 .nav li a:hover {
